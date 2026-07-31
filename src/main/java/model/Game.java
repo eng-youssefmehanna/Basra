@@ -82,6 +82,7 @@ public class Game {
     }
 
     public void start(){
+        deck.shuffle();
         addToFloor();
         dealToPlayers();
     }
