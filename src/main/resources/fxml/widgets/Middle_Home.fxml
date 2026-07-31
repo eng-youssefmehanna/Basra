@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.Insets?>
+
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="main.java.view.widgetview.Middle_Homecontroller"
+       maxWidth="Infinity"> <!--will be aligned center when included-->
+    <padding>
+        <Insets top="25"/>
+    </padding>
+
+        <Label fx:id="Welcome_Home" text="" style="-fx-font-size:90px">
+                <VBox.margin>
+                        <Insets bottom="80"/>
+                </VBox.margin>
+        </Label>
+
+        <Button fx:id="Start_game"  text="Start game"    style="-fx-font-size: 30px;"
+                prefWidth="234" maxWidth="234" prefHeight="40" maxHeight="40" onAction="#handleStartGame" >
+              <VBox.margin>
+                   <Insets bottom="20"/>
+              </VBox.margin>
+        </Button>
+
+        <Button fx:id="Join_game"  text="Join game"    style="-fx-font-size: 30px;"
+
+                prefWidth="234" maxWidth="234" prefHeight="40" maxHeight="40"
+                onAction="#handleJoinGame">
+                <VBox.margin>
+                        <Insets bottom="10"/>
+                </VBox.margin>
+        </Button>
+
+</VBox>
+
+
+
+
+
+
+
+
+
+
+
+

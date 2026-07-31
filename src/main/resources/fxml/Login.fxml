@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="main.java.view.Logincontroller" prefWidth="1280" prefHeight="720"
+stylesheets="@../css/Login.css">
+
+
+    <VBox fx:id="signin" prefWidth="520" maxWidth="520" alignment="CENTER" spacing="40" HBox.hgrow="NEVER">
+        <padding>
+            <Insets top="8" left="40" right="20"/>
+        </padding>
+
+
+        <Label fx:id="TitleofLogintext" text="Welcome to Basra!"
+               style="-fx-font-size: 40px;">
+        <VBox.margin>
+            <Insets bottom="16"/>
+        </VBox.margin>
+        </Label>
+
+        <VBox fx:id="wrappingloginbuttons" prefWidth="442" prefHeight="415" spacing="24"
+              alignment="center" style="-fx-border-width: 2px;">
+            <VBox.margin>
+                <Insets left="15" right="15" />
+            </VBox.margin>
+
+            <TextField fx:id="usernameField" promptText="Username" prefWidth="414"  maxWidth="414"  prefHeight="30"
+                       style="-fx-font-size: 25px;"/>
+
+            <PasswordField fx:id="passwordField"  promptText="Password" prefWidth="414" maxWidth="414" prefHeight="30"
+                           style="-fx-font-size: 25px;"/>
+
+            <Button fx:id="LoginButton"  text="Log in"    style="-fx-font-size: 37px;"   prefWidth="281" prefHeight="41"
+            onAction="#handleSignIn">
+                <VBox.margin>
+                    <Insets left="15" />
+                </VBox.margin>
+            </Button>
+
+            <Label fx:id="createaccbutton" text="Create Account" style="-fx-underline: true; -fx-cursor: hand; -fx-font-size:20px"
+                   onMouseClicked="#handleCreateAccount"/>  <!--need to onMousseclickked-->
+        </VBox>
+
+    </VBox>
+
+
+    <!-- for photo -->
+    <VBox fx:id="imagebox"  HBox.hgrow="ALWAYS"    >
+        <VBox.margin>
+            <Insets left="4" />
+        </VBox.margin>
+
+    </VBox>
+</HBox>

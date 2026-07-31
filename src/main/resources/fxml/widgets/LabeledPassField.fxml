@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="main.java.view.widgetview.LabeledPassFieldcontroller"
+      maxWidth="Infinity">
+
+    <Label fx:id="LabeledPassField_Label" text="" style="-fx-font-size: 20px;"/>
+
+    <PasswordField fx:id="LabeledPassField_Password" promptText=""
+               maxWidth="Infinity" prefHeight="30"
+               maxHeight="30" style="-fx-font-size: 16px;"/>
+
+</VBox>

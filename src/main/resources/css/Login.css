@@ -1,0 +1,86 @@
+/* ===== ROOT ===== */
+.root {
+    -fx-background-color: #0d0d1a;
+    -fx-font-family: "Georgia";
+}
+
+#imagebox {
+    -fx-background-image: url("../images/brecht-corbeel-li7RTRVtJD8-unsplash.jpg");
+      -fx-background-position: center bottom;
+    -fx-background-size: cover;
+
+}
+/* ===== SIGN IN PANEL ===== */
+#signin {
+    -fx-background-color: #0d0d1a;
+     -fx-border-color: transparent #d4a843 transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+
+}
+
+/* ===== TITLE ===== */
+#TitleofLogintext {
+    -fx-text-fill: #d4a843;
+    -fx-font-size: 42px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia";
+    -fx-effect: dropshadow(gaussian, rgba(212,168,67,0.4), 16, 0.3, 0, 0);
+}
+
+/* ===== INPUT FIELDS ===== */
+#usernameField, #passwordField {
+    -fx-background-color: #1a1a2e;
+    -fx-text-fill: #f0e6cc;
+    -fx-prompt-text-fill: #5a5a7a;
+    -fx-border-color: #3a3a5c;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 18px;
+    -fx-padding: 12px 20px;
+}
+
+#usernameField:focused, #passwordField:focused {
+    -fx-border-color: #d4a843;
+    -fx-background-color: #1e1e35;
+    -fx-effect: dropshadow(gaussian, rgba(212,168,67,0.3), 10, 0.2, 0, 0);
+}
+
+/* ===== LOGIN BUTTON ===== */
+#LoginButton {
+    -fx-background-color: linear-gradient(to bottom, #c9973a, #d4a843);
+    -fx-text-fill: #0d0d1a;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-font-family: "Georgia";
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 12px 40px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0.2, 0, 3);
+}
+
+#LoginButton:hover {
+    -fx-background-color: linear-gradient(to bottom, #d4a843, #e8c060);
+    -fx-effect: dropshadow(gaussian, rgba(212,168,67,0.5), 14, 0.3, 0, 0);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+#LoginButton:pressed {
+    -fx-background-color: #a07828;
+    -fx-effect: none;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* ===== CREATE ACCOUNT LINK ===== */
+#createaccbutton {
+    -fx-text-fill: #8888aa;
+    -fx-font-size: 15px;
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+#createaccbutton:hover {
+    -fx-text-fill: #d4a843;
+}

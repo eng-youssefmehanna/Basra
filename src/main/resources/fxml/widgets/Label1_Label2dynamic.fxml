@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="main.java.view.widgetview.Label1_Label2dynamiccontroller"
+      spacing="8">
+
+    <Label fx:id="Label1_static" text="" style="-fx-font-size: 32px;" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+
+    <Label fx:id="Label2_dynamic" text="" style="-fx-font-size: 32px;" prefWidth="100" maxWidth="100" HBox.hgrow="ALWAYS"/>
+
+    </HBox>

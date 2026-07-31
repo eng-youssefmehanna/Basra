@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.Insets?>
+
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="main.java.view.widgetview.Header_Homecontroller"
+      spacing="8" maxWidth="Infinity">
+    <padding>
+        <Insets left="15"/>
+    </padding>
+
+    <Circle fx:id="Circle_Home" radius="52" fill="#333333" stroke="#d4a843" strokeWidth="2"
+            onMouseClicked="#handleAvatarClick" >
+          <HBox.margin>
+               <Insets top="8"/>
+         </HBox.margin>
+    </Circle>
+
+    <Label fx:id="Label_username_Home" text="" style="-fx-underline: true;  -fx-font-size:25px">
+    <HBox.margin>
+        <Insets top="30"/>
+    </HBox.margin>
+    </Label>
+
+</HBox>

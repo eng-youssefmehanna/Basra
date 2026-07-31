@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="main.java.view.Createacccontroller"
+      prefWidth="540" prefHeight="475"
+      maxWidth="540" maxHeight="475"
+      spacing="15"  stylesheets="@../css/Createacc.css">
+    <padding>
+        <Insets left="18" top="10" />
+    </padding>
+
+    <fx:include source="widgets/LabeledTextField.fxml"
+                fx:id="LabeledTextField_include1_createacc"
+                prefWidth="320" prefHeight="45" maxWidth="320" maxHeight="45"  VBox.vgrow="NEVER"/>
+
+    <fx:include source="widgets/LabeledTextField.fxml"  prefWidth="320" prefHeight="45"
+                fx:id="LabeledTextField_include2_createacc"
+                maxWidth="320" maxHeight="45"  VBox.vgrow="NEVER"/>
+
+    <fx:include source="widgets/LabeledPassField.fxml"  prefWidth="320" prefHeight="45"
+                fx:id="LabeledPassField_include1_createacc"
+                maxWidth="320" maxHeight="45"  VBox.vgrow="NEVER"/>
+    <fx:include source="widgets/LabeledPassField.fxml"  prefWidth="320" prefHeight="45"
+                fx:id="LabeledPassField_include2_createacc"
+                maxWidth="320" maxHeight="45"  VBox.vgrow="NEVER"/>
+
+<Button fx:id="Createaccount_button" prefWidth="200" prefHeight="70"
+        maxWidth="200" maxHeight="60" text="Create account" style="-fx-font-size: 22px;"
+  onAction="#handleAccountCreation">
+    <VBox.margin>
+        <Insets left="150" top="20" />
+    </VBox.margin>
+</Button>
+
+</VBox>
