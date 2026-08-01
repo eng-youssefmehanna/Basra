@@ -21,7 +21,7 @@
 
     <Label fx:id="Label_username_Home" text="" style="-fx-underline: true;  -fx-font-size:25px">
     <HBox.margin>
-        <Insets top="30"/>
+        <Insets top="50"/>
     </HBox.margin>
     </Label>
 

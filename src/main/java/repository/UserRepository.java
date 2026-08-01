@@ -36,7 +36,7 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public Player fetchUser(String username, String passwordHash) throws IOException, InterruptedException {
+    public Player fetchUser(String username, String password) throws IOException, InterruptedException {
         HttpRequest request= HttpRequest.newBuilder()
                 .uri(URI.create(SupabaseConfig.URL + "/rest/v1/users?username=eq." + username))
                 .header("apikey", SupabaseConfig.API_KEY)
@@ -46,10 +46,11 @@ public class UserRepository implements IUserRepository {
         JsonArray array = JsonParser.parseString(response.body()).getAsJsonArray();
         if(array.isEmpty()){return null;}
         JsonObject obj = array.get(0).getAsJsonObject();
-        if(obj.get("password_hash").getAsString().equals(passwordHash)){
+        String hashedInput = Player.hashPassword(password);
+        if(obj.get("password_hash").getAsString().equals(hashedInput)){
 
             return Player.fromDatabase( obj.get("name").getAsString(), username,
-                    passwordHash, obj.get("wins").getAsInt(), obj.get("games_played").getAsInt());
+                    hashedInput, obj.get("wins").getAsInt(), obj.get("games_played").getAsInt());
         }
        return null;
     }

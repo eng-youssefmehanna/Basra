@@ -16,6 +16,7 @@ import javafx.stage.Stage;
                 stage.setScene(new Scene(root));
                 stage.setTitle("Basra");
                 stage.show();
+
             }
         }
 

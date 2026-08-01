@@ -34,5 +34,15 @@
         <Insets left="150" top="20" />
     </VBox.margin>
 </Button>
+    <Label fx:id="errorEmptyFields" text="Please fill in all fields."
+           style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
+    <Label fx:id="errorPasswordMatch" text="Passwords do not match."
+           style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
+    <Label fx:id="errorPasswordReqs" text="Password must be 6+ chars with a special character."
+           style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
+    <Label fx:id="errorUsernameTaken" text="Username already exists."
+           style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
+    <Label fx:id="Load" text="Loading..."
+           style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
 
 </VBox>

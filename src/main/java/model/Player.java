@@ -26,8 +26,6 @@ public class Player {
            throw new IllegalArgumentException("...");
         }
         this.passwordHash = hashPassword(password);
-        hand = new ArrayList<>();
-        capturedCards = new ArrayList<>();
 
     }
 
@@ -48,7 +46,7 @@ public class Player {
            return player;
     }
 
-        private String hashPassword(String password) {
+        public static String hashPassword(String password) {
             try {
                 MessageDigest md = MessageDigest.getInstance("SHA-256");
                 byte[] hash = md.digest(password.getBytes());
