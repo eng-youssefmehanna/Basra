@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="main.java.view.Lobbycontroller"
+      prefWidth="600" prefHeight="525"
+      maxWidth="600" maxHeight="525"
+      spacing="15"  >
+    <padding>
+        <Insets left="18" top="10" />
+    </padding>
+
+    <Label fx:id="code" text=""  sytle="-fx-font-size: 24px"/>
+
+    <VBox fx:id="playersContainer" maxWidth="Infinity" spacing="10" >
+
+    </VBox>
+
+    <Button fx:id="go_to_lobby" prefWidth="200" prefHeight="70"
+            maxWidth="200" maxHeight="60" text="Play" style="-fx-font-size: 22px;"
+            onAction="#handlePlay">
+        <VBox.margin>
+            <Insets left="150" top="20" />
+        </VBox.margin>
+    </Button>
+    <Label fx:id="statusLabel" text="Starting game..."
+           style="-fx-font-size: 16px;" visible="false"/>
+
+
+</VBox>
