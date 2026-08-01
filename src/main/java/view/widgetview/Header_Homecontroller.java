@@ -1,5 +1,6 @@
 package main.java.view.widgetview;
 
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
@@ -11,9 +12,8 @@ public class Header_Homecontroller {
     Label Label_username_Home;
 
 
-   public void setUserName(String text) {
-
-       Label_username_Home.setText(text);
+    public StringProperty userNameProperty() {
+        return Label_username_Home.textProperty();
     }
 
     @FXML

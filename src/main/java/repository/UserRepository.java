@@ -13,7 +13,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-
+// TODO update status
 public class UserRepository implements IUserRepository {
 
    private final HttpClient client = HttpClient.newHttpClient();
@@ -53,6 +53,11 @@ public class UserRepository implements IUserRepository {
                     hashedInput, obj.get("wins").getAsInt(), obj.get("games_played").getAsInt());
         }
        return null;
+    }
+
+    @Override
+    public boolean updateStats(String username, int wins, int gamesPlayed) throws IOException, InterruptedException {
+        return false;
     }
 
 }

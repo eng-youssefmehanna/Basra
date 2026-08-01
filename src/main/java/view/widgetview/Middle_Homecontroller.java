@@ -1,5 +1,6 @@
 package main.java.view.widgetview;
 
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,9 +15,8 @@ Label Welcome_Home;
 @FXML
     Button Join_game;
 
-    public void setWelcomeText(String text) {
-
-        Welcome_Home.setText("Welcome " +text +"!");
+    public StringProperty welcomeTextProperty() {
+        return Welcome_Home.textProperty();
     }
 
     @FXML

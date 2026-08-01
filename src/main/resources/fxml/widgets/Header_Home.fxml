@@ -19,7 +19,9 @@
          </HBox.margin>
     </Circle>
 
-    <Label fx:id="Label_username_Home" text="" style="-fx-underline: true;  -fx-font-size:25px">
+    <Label fx:id="Label_username_Home" text="" style="-fx-underline: false;
+    -fx-border-color: transparent  transparent white  transparent;
+    -fx-border-width: 0 0 2px 0; -fx-padding: 0 0 5px 0; -fx-font-size:25px; ">
     <HBox.margin>
         <Insets top="50"/>
     </HBox.margin>

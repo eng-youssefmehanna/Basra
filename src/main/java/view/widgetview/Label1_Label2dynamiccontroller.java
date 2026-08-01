@@ -1,5 +1,6 @@
 package main.java.view.widgetview;
 
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -14,8 +15,7 @@ public class Label1_Label2dynamiccontroller {
         Label1_static.setText(text);
     }
 
-    // will be replaced by binding
-    public void setLabelDynamic(String text) {
-        Label2_dynamic.setText(text);
+    public StringProperty dynamicLabelProperty() {
+        return Label2_dynamic.textProperty();
     }
 }

@@ -39,6 +39,9 @@ public class Logincontroller {
 
     @FXML
     private Label errorLabel;
+   @FXML
+    private Label Load;
+
 
 
     @FXML
@@ -57,7 +60,8 @@ public class Logincontroller {
         task.setOnSucceeded(e -> {
             Player player = task.getValue();
             if(player == null) {
-                System.out.println("showing error label");
+                Load.setVisible(false);
+               // for debugging: System.out.println("showing error label");
                 errorLabel.setVisible(true);
             } else {
                 try {
@@ -71,6 +75,8 @@ public class Logincontroller {
                         errorLabel.setVisible(true);
                     });
 
+
+                  Load.setVisible(true);
           new Thread(task).start();
     }
 

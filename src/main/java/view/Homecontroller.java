@@ -5,7 +5,9 @@ import main.java.view.widgetview.Label1_Label2dynamiccontroller;
 import main.java.view.widgetview.Header_Homecontroller;
 import main.java.view.widgetview.Middle_Homecontroller;
 import main.java.view.widgetview.*;
+import main.java.viewmodel.Homeviewmodel;
 
+//usernameLabel.textProperty().bind(viewModel.userNameProperty());
 public class Homecontroller {
     @FXML
     Label1_Label2dynamiccontroller Label1_Label2dynamic_include1Controller;
@@ -20,13 +22,15 @@ public class Homecontroller {
     Middle_Homecontroller Middle_Home_IncludeController;
 
 
-    public void initialize(){
-        Label1_Label2dynamic_include1Controller.setLabel("\uD83C\uDFC6 Wins: ");
-        Label1_Label2dynamic_include1Controller.setLabelDynamic("2");
-        Label1_Label2dynamic_include2Controller.setLabel("♣ Games:");
-        Label1_Label2dynamic_include2Controller.setLabelDynamic("1");
-        Header_Home_IncludeController.setUserName("test_username");
-        Middle_Home_IncludeController.setWelcomeText("User_Firstname");
+    private Homeviewmodel viewModel = new Homeviewmodel();
 
+    public void initialize() {
+        Header_Home_IncludeController.userNameProperty().bind(viewModel.userNameProperty());
+        Middle_Home_IncludeController.welcomeTextProperty().bind(viewModel.firstNameProperty());
+
+        Label1_Label2dynamic_include1Controller.setLabel("🏆 Wins: ");
+        Label1_Label2dynamic_include1Controller.dynamicLabelProperty().bind(viewModel.numWinsProperty());
+        Label1_Label2dynamic_include2Controller.setLabel("♣ Games:");
+        Label1_Label2dynamic_include2Controller.dynamicLabelProperty().bind(viewModel.numGamesProperty());
     }
 }
