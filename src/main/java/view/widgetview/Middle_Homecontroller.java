@@ -15,14 +15,21 @@ Label Welcome_Home;
 @FXML
     Button Join_game;
 
-    public StringProperty welcomeTextProperty() {
-        return Welcome_Home.textProperty();
+    private Runnable onStartGame;
+
+    public void setOnStartGame(Runnable action) {
+        this.onStartGame = action;
     }
 
     @FXML
-    public void handleStartGame(){
-
+    public void handleStartGame() {
+        if(onStartGame != null) onStartGame.run();
     }
+
+    public StringProperty welcomeTextProperty() {
+        return Welcome_Home.textProperty();
+    }
+    
 
     @FXML
     public void handleJoinGame(){

@@ -5,8 +5,8 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="main.java.view.Lobbycontroller"
-      prefWidth="600" prefHeight="525"
-      maxWidth="600" maxHeight="525"
+      prefWidth="600" prefHeight="625"
+      maxWidth="600" maxHeight="625"
       spacing="15"  >
     <padding>
         <Insets left="18" top="10" />
@@ -21,6 +21,14 @@
     <Button fx:id="go_to_lobby" prefWidth="200" prefHeight="70"
             maxWidth="200" maxHeight="60" text="Play" style="-fx-font-size: 22px;"
             onAction="#handlePlay">
+        <VBox.margin>
+            <Insets left="150" top="20" />
+        </VBox.margin>
+    </Button>
+
+    <Button fx:id="go_back" prefWidth="200" prefHeight="70"
+            maxWidth="200" maxHeight="60" text="Go back" style="-fx-font-size: 22px;"
+            onAction="#handleGoBack">
         <VBox.margin>
             <Insets left="150" top="20" />
         </VBox.margin>
