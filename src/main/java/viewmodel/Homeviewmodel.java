@@ -9,6 +9,7 @@ public class Homeviewmodel {
     private StringProperty firstname=new SimpleStringProperty();
     private StringProperty numWins=new SimpleStringProperty();
     private StringProperty numGames=new SimpleStringProperty();
+    private StringProperty avatar = new SimpleStringProperty();
 
 
 
@@ -17,6 +18,7 @@ public class Homeviewmodel {
         firstname.set("Welcome " + firstNameExtract() + "!");
         numWins.set(String.valueOf(SessionManager.getCurrentPlayer().getWins()));
         numGames.set(String.valueOf(SessionManager.getCurrentPlayer().getGamesPlayed()));
+        avatar.set(SessionManager.getCurrentPlayer().getPlayerAvatar());
 
     }
 
@@ -24,6 +26,7 @@ public class Homeviewmodel {
     public StringProperty firstNameProperty() { return firstname; };
     public StringProperty numWinsProperty() { return numWins; };
     public StringProperty numGamesProperty() { return numGames; };
+    public StringProperty avatarProperty(){ return avatar;};
 
 private String firstNameExtract(){
     String fullName = SessionManager.getCurrentPlayer().getName();

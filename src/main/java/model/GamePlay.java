@@ -42,13 +42,18 @@ public class GamePlay {
         return cardAct.execute();
     }
 
-    private List<Card> aceAction(){
+    private List<Card> aceAction() {
+        if (game.getFloor().isEmpty()) return new ArrayList<>();
+        return List.of(game.getFloor().get(0));
+    }
+
+    /*private List<Card> aceAction(){
         Scanner input=new Scanner(System.in);
         System.out.println("choose card from floor  by index");
         printFloorCards();
        int choice= input.nextInt();
         return new ArrayList<Card>(List.of(game.getFloor().get(choice)));
-    }
+    }*/
 
     private void printFloorCards(){
         int i = 0;
@@ -114,10 +119,7 @@ public class GamePlay {
     }
     //orchestrates the flow of one turn
     public void playTurn(Card card,Player player){
-        // step1
-        if(game.isCycleOver()){
-            game.dealToPlayers();
-        }
+
         //step 2
         player.playCard(card);
         // step 3
@@ -131,6 +133,11 @@ public class GamePlay {
 
         //step 4
         nextTurn();
+
+        // step1
+        if(game.isCycleOver()){
+            game.dealToPlayers();
+        }
 
     }
 

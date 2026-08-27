@@ -5,36 +5,39 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="main.java.view.Lobbycontroller"
-      prefWidth="600" prefHeight="625"
-      maxWidth="600" maxHeight="625"
-      spacing="15"  >
+      prefWidth="600" prefHeight="600"
+      maxWidth="600" maxHeight="600"
+      spacing="15"  stylesheets="@../css/Lobby.css" >
     <padding>
-        <Insets left="18" top="10" />
+        <Insets left="18" top="30" />
     </padding>
 
-    <Label fx:id="code" text=""  sytle="-fx-font-size: 24px"/>
+    <Label fx:id="code" text= ""  style="-fx-font-size: 24px"/>
+    <VBox.margin>
+        <Insets bottom="15" />
+    </VBox.margin>
 
     <VBox fx:id="playersContainer" maxWidth="Infinity" spacing="10" >
 
     </VBox>
 
-    <Button fx:id="go_to_lobby" prefWidth="200" prefHeight="70"
-            maxWidth="200" maxHeight="60" text="Play" style="-fx-font-size: 22px;"
+    <Button fx:id="go_to_lobby" prefWidth="200"
+            maxWidth="200" prefHeight="40" maxHeight="40" text="Play" style="-fx-font-size: 22px;"
             onAction="#handlePlay">
         <VBox.margin>
-            <Insets left="150" top="20" />
+            <Insets left="180" top="20" />
         </VBox.margin>
     </Button>
 
-    <Button fx:id="go_back" prefWidth="200" prefHeight="70"
-            maxWidth="200" maxHeight="60" text="Go back" style="-fx-font-size: 22px;"
+    <Button fx:id="go_back" prefWidth="200" prefHeight="40"
+            maxWidth="200" maxHeight="40" text="Go back" style="-fx-font-size: 22px;"
             onAction="#handleGoBack">
         <VBox.margin>
-            <Insets left="150" top="20" />
+            <Insets left="180"  />
         </VBox.margin>
     </Button>
     <Label fx:id="statusLabel" text="Starting game..."
-           style="-fx-font-size: 16px;" visible="false"/>
+           style="-fx-font-size: 24px;" visible="false"/>
 
 
 </VBox>

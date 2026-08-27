@@ -34,6 +34,9 @@ public class Homecontroller {
     public void initialize()  {
         Header_Home_IncludeController.userNameProperty().bind(viewModel.userNameProperty());
         Middle_Home_IncludeController.welcomeTextProperty().bind(viewModel.firstNameProperty());
+        Header_Home_IncludeController.setAvatar(viewModel.avatarProperty().get());
+
+
         Middle_Home_IncludeController.setOnStartGame(()->{
                 try{
                     navigateToLobby();
@@ -41,6 +44,17 @@ public class Homecontroller {
                     e.printStackTrace();
         }
         });
+
+        Middle_Home_IncludeController.setOnJoinGame(()-> {
+            try {
+                navigateToJoin();
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        });
+
+
         Label1_Label2dynamic_include1Controller.setLabel("🏆 Wins: ");
         Label1_Label2dynamic_include1Controller.dynamicLabelProperty().bind(viewModel.numWinsProperty());
         Label1_Label2dynamic_include2Controller.setLabel("♣ Games:");
@@ -56,6 +70,16 @@ public class Homecontroller {
         lobbyStage.setScene(new Scene(root));
         lobbyStage.show();
     }
+
+        private void navigateToJoin() throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Join.fxml"));
+            Parent root = loader.load();
+            Stage joinStage = new Stage();
+            joinStage.initModality(Modality.APPLICATION_MODAL);
+            joinStage.setResizable(false);
+            joinStage.setScene(new Scene(root));
+            joinStage.show();
+        }
 }
 
 

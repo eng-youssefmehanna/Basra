@@ -14,10 +14,12 @@ public class Player {
     private List<Card> capturedCards;
     private String userName;
     private String passwordHash;
+    private String playerAvatar;
     private int wins;
     private int gamesPlayed;
 
-// account constructor only for regstiration
+
+// account constructor only for registration
     public Player(String name, String userName, String password) {
         this(name,userName);
         this.name = name;
@@ -26,6 +28,8 @@ public class Player {
            throw new IllegalArgumentException("...");
         }
         this.passwordHash = hashPassword(password);
+
+        playerAvatar= AvatarManager.getRandomAvatar();
 
     }
 
@@ -38,11 +42,13 @@ public class Player {
         capturedCards = new ArrayList<>();
     }
 // static factory pattern: create a player coming from the database , avoids double hashing
-    public static Player fromDatabase(String name, String userName, String passwordHash, int wins, int gamesPlayed){
+    public static Player fromDatabase(String name, String userName, String passwordHash, int wins
+            , int gamesPlayed, String playerAvatar){
           Player player = new Player(name, userName);
            player.passwordHash=passwordHash;
            player.wins=wins;
            player.gamesPlayed=gamesPlayed;
+           player.playerAvatar=playerAvatar;
            return player;
     }
 
@@ -120,5 +126,9 @@ public class Player {
             }
         }
         return false;
+    }
+
+    public String getPlayerAvatar() {
+        return playerAvatar;
     }
 }

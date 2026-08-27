@@ -39,4 +39,8 @@ public class Deck {
     public boolean isEmpty(){
         return deck.isEmpty();
     }
+
+    public int size() { return deck.size(); }
+
+
 }

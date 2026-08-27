@@ -23,17 +23,27 @@ Label Welcome_Home;
 
     @FXML
     public void handleStartGame() {
-        if(onStartGame != null) onStartGame.run();
+        if(onStartGame != null){
+            onStartGame.run();
+        }
     }
 
     public StringProperty welcomeTextProperty() {
         return Welcome_Home.textProperty();
     }
-    
 
+// makan l method
+    private Runnable onJoinGame;
+// intialize el method bel arg recieved method
+    public void setOnJoinGame(Runnable action) {
+        this.onJoinGame = action;
+    }
+// law fi method ebda2
     @FXML
-    public void handleJoinGame(){
-
+    public void handleJoinGame() {
+        if(onJoinGame != null){
+            onJoinGame.run();
+        }
     }
 
 

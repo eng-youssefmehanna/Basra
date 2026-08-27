@@ -1,0 +1,41 @@
+.root {
+    -fx-background-color: #f5f0e8;
+    -fx-font-family: "Georgia";
+}
+
+#code {
+    -fx-text-fill: #c9a84c;
+    -fx-font-family: "Georgia";
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+}
+
+#go_to_lobby, #go_back {
+    -fx-background-color: linear-gradient(to bottom, #c9973a, #d4a843);
+    -fx-text-fill: #0d0d1a;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia";
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.2, 0, 2);
+}
+
+#go_to_lobby:hover, #go_back:hover {
+    -fx-background-color: linear-gradient(to bottom, #d4a843, #e8c060);
+    -fx-effect: dropshadow(gaussian, rgba(212,168,67,0.5), 12, 0.3, 0, 0);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+#go_to_lobby:pressed, #go_back:pressed {
+    -fx-background-color: #a07828;
+    -fx-effect: none;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+#statusLabel {
+    -fx-text-fill: #7a6a4a;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 14px;
+}

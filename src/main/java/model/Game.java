@@ -15,6 +15,8 @@ public class Game {
         floor=new ArrayList<>();
     }
 
+    public int getDeckSize() { return deck.size(); }
+
     public void addPlayers(Player...player){
         // look for current size + sixe after addition
         if(players.size()+ player.length >4){
@@ -24,11 +26,13 @@ public class Game {
     }
     // 4 cards
     private void addToFloor( ){
+
         floor.addAll(deck.withdraw(drawingCount));
     }
 
     // overloading , 1 card when a player plays it
     void addToFloor(Card card){
+
         floor.add(card);
     }
 
@@ -65,6 +69,7 @@ public class Game {
     }
 
     public void removeFromFloor(List<Card> cards){
+
         floor.removeAll(cards);
     }
 

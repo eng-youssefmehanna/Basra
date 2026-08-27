@@ -1,0 +1,40 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom, #1a1240, #2d1b6e);
+    -fx-font-family: "Georgia";
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+#currentTurnLabel {
+    -fx-text-fill: #f0c040;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia";
+}
+
+#deckCount {
+    -fx-text-fill: #f0c040;
+    -fx-font-size: 13px;
+}
+
+#statusLabel {
+    -fx-text-fill: #f0c040;
+    -fx-font-size: 14px;
+}
+
+#floorCards {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 10;
+    -fx-border-color: #f0c040;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 10;
+}
+
+#player1Username, #player2Username, #player3Username, #player4Username {
+    -fx-text-fill: #f0c040;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}

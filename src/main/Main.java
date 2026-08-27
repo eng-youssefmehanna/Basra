@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.java.model.Card;
+import main.java.model.Ranks;
+import main.java.model.Suits;
 
-        public class Main extends Application {
+public class Main extends Application {
             @Override
             public void start(Stage stage) throws Exception {
                 FXMLLoader loader = new FXMLLoader(
@@ -16,7 +19,11 @@ import javafx.stage.Stage;
                 stage.setScene(new Scene(root));
                 stage.setTitle("Basra");
                 stage.show();
+                Card c = new Card(Suits.SPADES, Ranks.ACE);
+                System.out.println(c.getImageUrl());
 
             }
+
+
         }
 

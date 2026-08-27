@@ -22,8 +22,8 @@ public class UserRepository implements IUserRepository {
     @Override
     public boolean registerUser(Player player) throws IOException, InterruptedException {
         String json = String.format(
-                "{\"name\":\"%s\",\"username\":\"%s\",\"password_hash\":\"%s\"}",
-                player.getName(), player.getUserName(), player.getPasswordHash());
+                "{\"name\":\"%s\",\"username\":\"%s\",\"password_hash\":\"%s\", \"avatar_url\":\"%s\"}",
+                player.getName(), player.getUserName(), player.getPasswordHash(), player.getPlayerAvatar());
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(SupabaseConfig.URL + "/rest/v1/users"))
                 .header("apikey", SupabaseConfig.API_KEY)
@@ -44,13 +44,16 @@ public class UserRepository implements IUserRepository {
                 .build();
         HttpResponse<String> response=client.send(request, HttpResponse.BodyHandlers.ofString());
         JsonArray array = JsonParser.parseString(response.body()).getAsJsonArray();
-        if(array.isEmpty()){return null;}
+        if(array.isEmpty()){
+            return null;}
         JsonObject obj = array.get(0).getAsJsonObject();
         String hashedInput = Player.hashPassword(password);
         if(obj.get("password_hash").getAsString().equals(hashedInput)){
 
             return Player.fromDatabase( obj.get("name").getAsString(), username,
-                    hashedInput, obj.get("wins").getAsInt(), obj.get("games_played").getAsInt());
+                    hashedInput, obj.get("wins").getAsInt(), obj.get("games_played").getAsInt()
+                    , obj.get("avatar_url").getAsString()
+                    );
         }
        return null;
     }

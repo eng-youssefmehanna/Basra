@@ -89,6 +89,27 @@ public class Lobbyrepository {
       return response.statusCode() == 200;
    }
 
+   public boolean removeFromLobby(String code, String username) throws IOException, InterruptedException {
+      Lobby current= fetchLobby(code);
+      List<String> updatedPlayers = new ArrayList<>(current.players());
+      updatedPlayers.remove(username);
+
+      String playersJson = "[" + updatedPlayers.stream()
+              .map(p -> "\"" + p + "\"")
+              .collect(Collectors.joining(",")) + "]";
+
+      String json = String.format("{\"players\":%s}", playersJson);
+
+      HttpRequest request = HttpRequest.newBuilder()
+              .uri(URI.create(SupabaseConfig.URL + "/rest/v1/lobbies?game_code=eq." + code))
+              .header("apikey", SupabaseConfig.API_KEY)
+              .header("Content-Type", "application/json")
+              .method("PATCH", HttpRequest.BodyPublishers.ofString(json))
+              .build();
+
+      HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+      return response.statusCode() == 200;
+   }
 
    }
 
