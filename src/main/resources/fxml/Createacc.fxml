@@ -44,5 +44,7 @@
            style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
     <Label fx:id="Load" text="Loading..."
            style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
+    <Label fx:id="networkError" text="Network Error"
+           style="-fx-text-fill: red; -fx-font-size: 14px;" visible="false"/>
 
 </VBox>

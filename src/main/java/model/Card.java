@@ -64,4 +64,18 @@ public class Card {
     }
 
 
+    public String getImageUrl() {
+        String rankCode = switch(rank) {
+            case ACE -> "A";
+            case TEN -> "0";
+            case JACK -> "J";
+            case QUEEN -> "Q";
+            case KING -> "K";
+            default -> String.valueOf(rank.getRankValue());
+        };
+        String suitCode = String.valueOf(suit.name().charAt(0));
+        return "https://deckofcardsapi.com/static/img/" + rankCode + suitCode + ".png";
+    }
+
+
 }
