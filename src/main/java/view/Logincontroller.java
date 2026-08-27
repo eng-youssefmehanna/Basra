@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import main.java.config.SessionManager;
 import main.java.model.Player;
 import main.java.repository.UserRepository;
+import main.java.util.Router.Approuter;
 import main.java.viewmodel.Loginviewmodel;
 
 import java.io.IOException;
@@ -43,72 +44,44 @@ public class Logincontroller {
     private Label Load;
 
 
-
+    // Trade-off: getLoggedInPlayer() couples controller to ViewModel state.
+// Consider LoginResult wrapper if scaling.
     @FXML
-    public void initialize(){
-
+    public void initialize() {
+        loginviewModel.getLoginState().addListener((obs, old, newState) -> {
+            switch (newState) {
+                case LOADING     -> Load.setVisible(true);
+                case SUCCESS     -> { Load.setVisible(true);
+                            SessionManager.setCurrentPlayer(loginviewModel.getLoggedInPlayer());
+                    try { Approuter.navigateToHome(getStage()); }
+                    catch (IOException e) { throw new RuntimeException(e); }
+                }
+                case ERRORLABEL  -> { Load.setVisible(false);
+                    errorLabel.setVisible(true); }
+                case NETWORKERROR-> { Load.setVisible(false);
+                    errorLabel.setVisible(true); }
+                case IDLE        -> {}
+            }
+        });
     }
 
     public void handleSignIn() {
-        Task<Player> task=new Task<>(){
-            @Override
-            protected Player call() throws Exception {
-                return loginviewModel.allowLogin(getUsername(), getPassword());
-            }
-        };
-
-        task.setOnSucceeded(e -> {
-            Player player = task.getValue();
-            if(player == null) {
-                Load.setVisible(false);
-               // for debugging: System.out.println("showing error label");
-                errorLabel.setVisible(true);
-            } else {
-                try {
-                    SessionManager.setCurrentPlayer(player);
-                    navigateToHome(); }
-                catch (IOException ex) { throw new RuntimeException(ex); }
-            }
-        });
-
-                task.setOnFailed(e -> {
-                        errorLabel.setVisible(true);
-                    });
-
-
-                  Load.setVisible(true);
-          new Thread(task).start();
-    }
-
-
-
-//IO exception cause reading a file
-    public void handleCreateAccount() throws IOException {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Createacc.fxml"));
-        Parent root = loader.load();
-        Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setResizable(false);
-        popupStage.setScene(new Scene(root));
-        popupStage.showAndWait();
+        loginviewModel.login(getUsername(), getPassword());
     }
 
     public String getUsername(){
-       return usernameField.getText();
+        return usernameField.getText();
     }
 
     public String getPassword(){
         return passwordField.getText();
     }
 
-    private void navigateToHome() throws IOException {
-        Stage currentStage = (Stage) LoginButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
-        Parent root = loader.load();
-        Stage homeScreen = new Stage();
-        homeScreen.setScene(new Scene(root));
-        currentStage.close();
-        homeScreen.show();
+    public void handleCreateAccount() throws IOException {
+        Approuter.openCreateAccount();
     }
+   public Stage getStage(){
+        return (Stage) LoginButton.getScene().getWindow();
+   }
 
 }

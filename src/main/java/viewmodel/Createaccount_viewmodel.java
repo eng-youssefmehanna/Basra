@@ -17,7 +17,6 @@ public class Createaccount_viewmodel {
 
 
     public Createaccount_viewmodel(UserRepository user){
-
         this.user=user;
     }
 
@@ -50,6 +49,5 @@ public class Createaccount_viewmodel {
     public void setRegState(RegistrationState state) {
         regState.set(state);
     }
-
 
 }
