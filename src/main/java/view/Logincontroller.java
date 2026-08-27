@@ -43,23 +43,25 @@ public class Logincontroller {
    @FXML
     private Label Load;
 
+    @FXML
+    private Label networkError;
 
-    // Trade-off: getLoggedInPlayer() couples controller to ViewModel state.
-// Consider LoginResult wrapper if scaling.
+
     @FXML
     public void initialize() {
-        loginviewModel.getLoginState().addListener((obs, old, newState) -> {
-            switch (newState) {
+        loginviewModel.getLoginResult().addListener((obs, old, newResult) -> {
+            switch (newResult.state()) {
                 case LOADING     -> Load.setVisible(true);
-                case SUCCESS     -> { Load.setVisible(true);
-                            SessionManager.setCurrentPlayer(loginviewModel.getLoggedInPlayer());
+                case SUCCESS     -> {
+                    Load.setVisible(false);
+                    SessionManager.setCurrentPlayer(newResult.player());
                     try { Approuter.navigateToHome(getStage()); }
                     catch (IOException e) { throw new RuntimeException(e); }
                 }
                 case ERRORLABEL  -> { Load.setVisible(false);
-                    errorLabel.setVisible(true); }
+                                   errorLabel.setVisible(true); }
                 case NETWORKERROR-> { Load.setVisible(false);
-                    errorLabel.setVisible(true); }
+                                     networkError.setVisible(true); }
                 case IDLE        -> {}
             }
         });

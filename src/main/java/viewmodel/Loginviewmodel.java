@@ -8,30 +8,31 @@ import main.java.model.Player;
 import main.java.model.state.LoginState;
 import main.java.repository.UserRepository;
 import main.java.util.AppExecutor;
+import main.java.viewmodel.result.LoginResult;
 
 import java.io.IOException;
 
 public class Loginviewmodel {
    private UserRepository user;
-   private ObjectProperty<LoginState> loginState= new SimpleObjectProperty<>(LoginState.IDLE);
-   private Player loggedInPlayer;
+   private ObjectProperty<LoginResult> loginResult= new SimpleObjectProperty<>(new LoginResult(
+           LoginState.IDLE,null)
+   );
    public Loginviewmodel(UserRepository user){
         this.user=user;
     }
 
     public void login(String username, String password){
-        Platform.runLater(()->loginState.set(LoginState.LOADING));
+        Platform.runLater(()-> loginResult.set(new LoginResult(LoginState.LOADING, null)));
         AppExecutor.executor.submit(()-> {
             try {
                 Player result = allowLogin(username, password);
                 if (result == null) {
-                    Platform.runLater(() -> loginState.set(LoginState.ERRORLABEL));
+                    Platform.runLater(() -> loginResult.set(new LoginResult(LoginState.ERRORLABEL, null)));
                 } else {
-                    loggedInPlayer=result;
-                    Platform.runLater(() -> loginState.set(LoginState.SUCCESS));
+                    Platform.runLater(() ->loginResult.set(new LoginResult(LoginState.SUCCESS, result)));
                 }
             } catch (IOException | InterruptedException e) {
-                Platform.runLater(() -> loginState.set(LoginState.NETWORKERROR));
+                Platform.runLater(() -> loginResult.set(new LoginResult(LoginState.NETWORKERROR, null)));
             }
         });
     }
@@ -40,10 +41,8 @@ public class Loginviewmodel {
         return user.fetchUser(username,password);
     }
 
-    public ObjectProperty<LoginState>  getLoginState(){
-        return loginState;
+    public ObjectProperty<LoginResult> getLoginResult() {
+        return loginResult;
     }
-    public Player getLoggedInPlayer() {
-        return loggedInPlayer;
-    }
+
 }
